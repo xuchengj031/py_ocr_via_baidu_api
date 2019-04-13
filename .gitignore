@@ -1,0 +1,6 @@
+*.pyc
+*.bak
+__pycache__/**
+img/**
+*.png
+temp.txt
