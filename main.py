@@ -20,6 +20,7 @@ def grab_im():
         cursor_current_x, cursor_current_y = 0, 0
         crop_im = False
 
+        # 获取设备环境
         win_DC = win32gui.GetDC(0)
         # 获取鼠标位置
         cursor_origin_x, cursor_origin_y = win32gui.GetCursorPos()
@@ -29,6 +30,7 @@ def grab_im():
                                           win32api.GetSystemMetrics(0),
                                           win32api.GetSystemMetrics(1)))
 
+        # 只有当检测到CTRL键被按下时才进行截
         while win32api.GetAsyncKeyState(win32con.VK_CONTROL) < 0:
             if not crop_im:
                 crop_im = True
@@ -112,7 +114,7 @@ if __name__ == '__main__':
     API_KEY = '0AtOpCYua822O6K46QG6830o'
     SECRET_KEY = 'PNPqMHW3wVl6e6gNOGmFpKGFZRgElMtW'
     aipOcr = AipOcr(APP_ID, API_KEY, SECRET_KEY)
-    # 定义参数变量
+    # 配置百度OCR识别选项
     options = {
         'detect_direction': 'true',
         'language_type': 'CHN_ENG',
@@ -134,6 +136,8 @@ if __name__ == '__main__':
         temp_arr.append(i['words'])
     texts = re.sub(pat, '', '\n'.join(temp_arr))
 
+    print(texts)
+
     # 识别结果复制到剪贴板
     wc.OpenClipboard()
     wc.EmptyClipboard()
@@ -141,8 +145,6 @@ if __name__ == '__main__':
     wc.CloseClipboard()
 
     # 识别结果保存并打开
-    with open(op_text, 'w+', encoding='utf-8') as f:
+    with open(op_text, 'w+', encoding='gbk') as f:
         f.write(texts)
     os.system("notepad {}".format(op_text))
-
-    print(texts)

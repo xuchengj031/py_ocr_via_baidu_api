@@ -70,4 +70,4 @@ if __name__ == '__main__':
     while condition:
         # CALL: grab_screen() and store image
         image = grab_screen()
-        image.save(r"img\screen_capture.jpg", "JPEG")
+        image.save(r"02screen_capture.jpg", "JPEG")
