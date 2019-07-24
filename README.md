@@ -6,7 +6,17 @@
 
 详见[用python改善OCR识别结果](http://www.xuchengjing.cn/用python改善OCR识别结果/)
 
+## 使用
 
+只需要一个文件：`py_ocr_via_baidu_api.py`。
+
+1. 在cmd窗口运行`python py_ocr_via_baidu_api.py `
+
+2. 按住`CTRL`键的同时用鼠标框选要识别的区域（通常是图片或pdf里）
+
+   
+
+截图和识别结果都会保存在`py_ocr_via_baidu_api.py`脚本所在的目录。
 
 ## 识别效果
 
