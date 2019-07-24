@@ -2,7 +2,7 @@
 *.bak
 __pycache__/**
 img/**
-*.png
+screen_area*.png
 temp.txt
 *.pdf
 attempt/**
